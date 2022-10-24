@@ -1,34 +1,34 @@
-<div class="cairn-items-list-header">
-    <div>{{ localize 'CAIRN.Name' }} <i>{{ localize 'CAIRN.BoldMeanEquipped' }}</i></div>
-    <a class="item-control item-create" title="{{ localize 'CAIRN.CreateItem' }}" data-type="item"><i class="fas fa-plus"></i>&nbsp;{{ localize 'CAIRN.AddItem' }}</a>
+<div class="eternalhunger-items-list-header">
+    <div>{{ localize 'ETERNALHUNGER.Name' }} <i>{{ localize 'ETERNALHUNGER.BoldMeanEquipped' }}</i></div>
+    <a class="item-control item-create" title="{{ localize 'ETERNALHUNGER.CreateItem' }}" data-type="item"><i class="fas fa-plus"></i>&nbsp;{{ localize 'ETERNALHUNGER.AddItem' }}</a>
 </div>
 {{#each data.items as |item id|}}
-<div class="cairn-items-list-row" data-item-id="{{item._id}}">
-    <div class="cairn-items-list-row-header">
-        <div class="cairn-item-name-and-tags">
-            <a class="cairn-item-title">
+<div class="eternalhunger-items-list-row" data-item-id="{{item._id}}">
+    <div class="eternalhunger-items-list-row-header">
+        <div class="eternalhunger-item-name-and-tags">
+            <a class="eternalhunger-item-title">
                 {{#boldIf item.system.equipped}}{{item.name}}{{/boldIf}}
             </a>
             {{#if item.system.blast}}
-            <div class="cairn-item-tag">{{ localize 'CAIRN.Blast' }}</div>
+            <div class="eternalhunger-item-tag">{{ localize 'ETERNALHUNGER.Blast' }}</div>
             {{/if}}
             {{#if item.system.armor}}
-            <span class="cairn-item-tag">{{ localize 'CAIRN.Armor' }} {{item.system.armor}}</span>
+            <span class="eternalhunger-item-tag">{{ localize 'ETERNALHUNGER.Armor' }} {{item.system.armor}}</span>
             {{/if}}
             {{#if item.system.damageFormula}}
-            <div class="cairn-item-tag">{{item.system.damageFormula}} {{ localize 'CAIRN.Damage' }}</div>
+            <div class="eternalhunger-item-tag">{{item.system.damageFormula}} {{ localize 'ETERNALHUNGER.Damage' }}</div>
             {{/if}}
             {{#if item.system.bulky}}
-            <div class="cairn-item-tag">{{ localize 'CAIRN.Bulky' }}</div>
+            <div class="eternalhunger-item-tag">{{ localize 'ETERNALHUNGER.Bulky' }}</div>
             {{/if}}
             {{#if item.system.criticalDamage}}
-            <div class="cairn-item-tag">{{ localize 'CAIRN.CriticalDamage' }}</div>
+            <div class="eternalhunger-item-tag">{{ localize 'ETERNALHUNGER.CriticalDamage' }}</div>
             {{/if}}
             {{#if item.system.weightless}}
-            <div class="cairn-item-tag">{{ localize 'CAIRN.Weightless' }} {{item.system.quantity}} </div>
+            <div class="eternalhunger-item-tag">{{ localize 'ETERNALHUNGER.Weightless' }} {{item.system.quantity}} </div>
             {{/if}}
 
-            <div class="cairn-item-uses">
+            <div class="eternalhunger-item-uses">
               {{#times item.system.uses.max}}
                 {{#if (gt item.system.uses.value @index)}}
                   <i class="fa-solid fa-circle"></i>
@@ -40,12 +40,12 @@
 
         </div>
         
-        <div class="cairn-item-controls">
+        <div class="eternalhunger-item-controls">
             {{#if item.system.hasPlusMinus}}                        
-              <a class="item-control item-add-quantity" title="{{localize 'Cairn.ItemAddQuantity'}}">
+              <a class="item-control item-add-quantity" title="{{localize 'EternalHunger.ItemAddQuantity'}}">
                 <i class="fas fa-plus"></i>
               </a>
-              <a class="item-control item-remove-quantity" title="{{localize 'Cairn.ItemRemoveQuantity'}}">
+              <a class="item-control item-remove-quantity" title="{{localize 'EternalHunger.ItemRemoveQuantity'}}">
                 <i class="fas fa-minus"></i>
               </a>
             {{/if}}
@@ -53,14 +53,14 @@
             {{#if item.system.equipped}}
               {{#if item.system.damageFormula}}
                 <a class="roll-control" data-label="damage with {{item.name}}" data-roll="{{item.system.damageFormula}}"
-                    title="{{ localize 'CAIRN.RollDamage' }}">
+                    title="{{ localize 'ETERNALHUNGER.RollDamage' }}">
                     <i class="fas fa-dice-d20"></i>
                 </a>
               {{/if}}
             {{/if}}
 
             {{#if item.system.isEquipable}}   
-              <a class="item-control item-toggle-equipped {{ifPrint item.system.equipped 'equipped'}}" title="{{ifPrintElse item.system.equipped (localize 'Cairn.ItemUnequip') (localize 'Cairn.ItemEquip')}}">
+              <a class="item-control item-toggle-equipped {{ifPrint item.system.equipped 'equipped'}}" title="{{ifPrintElse item.system.equipped (localize 'EternalHunger.ItemUnequip') (localize 'EternalHunger.ItemEquip')}}">
                 <i class="fas fa-hand-paper"></i>
               </a>
             {{/if}}        

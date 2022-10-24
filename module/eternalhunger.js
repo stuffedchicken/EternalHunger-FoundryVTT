@@ -1,44 +1,44 @@
 // Import Modules
-import { CairnActor } from './actor/actor.js'
-import { CairnActorSheet } from './actor/actor-sheet.js'
-import { CairnItem } from './item/item.js'
-import { CairnItemSheet } from './item/item-sheet.js'
+import { EternalHungerActor } from './actor/actor.js'
+import { EternalHungerActorSheet } from './actor/actor-sheet.js'
+import { EternalHungerItem } from './item/item.js'
+import { EternalHungerItemSheet } from './item/item-sheet.js'
 import { createCharacter } from './character-generator.js'
 import * as characterGenerator from "./character-generator.js";
-import { Cairn } from './config.js'
-import { CairnCombat } from './combat.js'
-import { createCairnMacro, rollItemMacro } from './macros.js'
+import { EternalHunger } from './config.js'
+import { EternalHungerCombat } from './combat.js'
+import { createEternalHungerMacro, rollItemMacro } from './macros.js'
 
 Hooks.once('init', async function () {
-  game.cairn = {
-    CairnActor,
-    CairnItem,
-    config: Cairn,
+  game.eternalhunger = {
+    EternalHungerActor,
+    EternalHungerItem,
+    config: EternalHunger,
     characterGenerator: characterGenerator,
     rollItemMacro
   }
 
   // Define custom Entity classes
-  CONFIG.Actor.documentClass = CairnActor;
-  CONFIG.Item.documentClass = CairnItem;
+  CONFIG.Actor.documentClass = EternalHungerActor;
+  CONFIG.Item.documentClass = EternalHungerItem;
 
   // configure combat
-  CONFIG.Combat.documentClass = CairnCombat;
+  CONFIG.Combat.documentClass = EternalHungerCombat;
   CONFIG.Combat.initiative = {
     formula: "1d20",
   };
 
   // Register sheet application classes
   Actors.unregisterSheet('core', ActorSheet);
-  Actors.registerSheet('cairn', CairnActorSheet, { makeDefault: true });
+  Actors.registerSheet('eternalhunger', EternalHungerActorSheet, { makeDefault: true });
   Items.unregisterSheet('core', ItemSheet);
-  Items.registerSheet('cairn', CairnItemSheet, { makeDefault: true });
+  Items.registerSheet('eternalhunger', EternalHungerItemSheet, { makeDefault: true });
 
   configureHandleBar();
 });
 
 Hooks.once("ready", () => {
-  Hooks.on("hotbarDrop", (bar, data, slot) => createCairnMacro(data, slot));
+  Hooks.on("hotbarDrop", (bar, data, slot) => createEternalHungerMacro(data, slot));
 });
 
 Hooks.on("renderActorDirectory", (app, html) => {
@@ -53,7 +53,7 @@ Hooks.on("renderActorDirectory", (app, html) => {
       "afterbegin",
       `
       <div class="header-actions action-buttons flexrow">
-        <button class="create-character-generator-button"><i class="fas fa-skull"></i>${game.i18n.localize("CAIRN.CharacterGenerator")}</button>
+        <button class="create-character-generator-button"><i class="fas fa-skull"></i>${game.i18n.localize("ETERNALHUNGER.CharacterGenerator")}</button>
       </div>
       `
     );
@@ -67,7 +67,7 @@ Hooks.on("renderActorDirectory", (app, html) => {
 const configureHandleBar = () => {
   // Pre-load templates
   const templatePaths = [
-    "systems/cairn/templates/parts/items-list.html",
+    "systems/eternalhunger/templates/parts/items-list.html",
   ];
 
   loadTemplates(templatePaths);

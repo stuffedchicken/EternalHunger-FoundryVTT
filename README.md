@@ -1,8 +1,8 @@
 # Eternal Hunger for FoundryVTT!
 
-Implements basic character and item sheets for playing Eternal Hunger by stuffedchicken in Foundry VTT. Eternal Hunger is a modern vampire roleplaying game based on the lineage of Into the Odd, Electric Bastionland, Cairn, and Liminal Horror.
+Implements basic character and item sheets for playing Eternal Hunger by stuffedchicken in Foundry VTT. Eternal Hunger is a modern vampire roleplaying game based on the lineage of Into the Odd, Electric Bastionland, EternalHunger, and Liminal Horror.
 
-The code is based on the Cairn system for FoundryVTT.
+The code is based on the EternalHunger system for FoundryVTT.
 
 ## Installation - Auto Installer (Recommended)
 
